@@ -77,19 +77,6 @@ This knowledge base is intended for:
 
 ---
 
-## 📥 Contributing
-
-Contributions are welcome! To add new frameworks or improve existing content:
-
-1. Fork the repository
-2. Create a new branch (`feature/my-framework`)
-3. Add your content (markdown format preferred)
-4. Submit a pull request with a short description
-
-Please refer to our [Contributing Guidelines](CONTRIBUTING.md) for more details.
-
----
-
 ## 📄 License
 
 This project is licensed under the [GNU General Public License v3.0](LICENSE). You are free to use, copy, and modify the contents for personal, academic, or commercial use with attribution.
