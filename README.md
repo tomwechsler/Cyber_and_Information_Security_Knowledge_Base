@@ -92,7 +92,7 @@ Please refer to our [Contributing Guidelines](CONTRIBUTING.md) for more details.
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE). You are free to use, copy, and modify the contents for personal, academic, or commercial use with attribution.
+This project is licensed under the [GNU General Public License v3.0](LICENSE). You are free to use, copy, and modify the contents for personal, academic, or commercial use with attribution.
 
 ---
 
