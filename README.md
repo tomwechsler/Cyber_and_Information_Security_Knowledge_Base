@@ -28,7 +28,7 @@ It includes resources from leading organizations such as:
 The repository is organized into sections for clarity and ease of use (just an example):
 
 📁 frameworks/  
-└── NIST-CSF.md
+└── NIST-CSF.md  
 └── ISO-27001.md  
 └── COBIT.md  
 
