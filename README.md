@@ -1,5 +1,5 @@
 # Cyber and Information Security Knowledge Base!
-A curated knowledge base of cybersecurity and information security standards, frameworks, best practices, and guidelines. This repository is intended as a central reference for professionals, students, and organizations seeking structured, reliable, and vendor-neutral security knowledge. Covers key resources such as NIST, ISO/IEC, OWASP, CIS, ISACA, and more.
+A structured knowledge base of cybersecurity and information security standards, frameworks, best practices, and guidelines. This repository is intended as a central reference for professionals, students, and organizations seeking structured, reliable, and vendor-neutral (Not always - but mostly) security knowledge. Covers key resources such as NIST, ISO/IEC, OWASP, CIS, ISACA, and more.
 
 ---
 
