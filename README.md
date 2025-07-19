@@ -42,7 +42,7 @@ The repository is organized into sections for clarity and ease of use (just an e
 └── Incident-Response.md  
 └── Cloud-Security.md  
 
-📁 mappings/
+📁 mappings/   
 └── NIST-to-ISO27001.md  
 └── OWASP-vs-CIS.md  
 
