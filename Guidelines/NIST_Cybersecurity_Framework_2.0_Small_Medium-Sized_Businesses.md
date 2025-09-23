@@ -163,6 +163,46 @@ Start with the basics, build momentum, and remember: **cybersecurity is a journe
 
 ---
 
+📊 NIST Cybersecurity Framework 2.0 at a Glance (for SMBs)
+
++----------------------------------------------------------+
+|                   NIST CSF 2.0 – SMB Quick Guide         |
++-------------------+--------------------------------------+
+| 1. IDENTIFY       | Know your assets, data, and risks.   |
+|                   | • Asset inventory                   |
+|                   | • Data classification               |
+|                   | • Business process mapping          |
++-------------------+--------------------------------------+
+| 2. PROTECT        | Safeguard critical systems.          |
+|                   | • MFA & strong passwords            |
+|                   | • Encryption & backups              |
+|                   | • Employee security training        |
+|                   | • Least privilege access            |
++-------------------+--------------------------------------+
+| 3. DETECT         | Spot issues early.                   |
+|                   | • Antivirus / endpoint protection   |
+|                   | • Log monitoring & alerts           |
+|                   | • Cloud activity monitoring         |
++-------------------+--------------------------------------+
+| 4. RESPOND        | Act fast when incidents occur.       |
+|                   | • Incident response plan            |
+|                   | • Contact list (IT, legal, vendors) |
+|                   | • Tabletop exercises                |
++-------------------+--------------------------------------+
+| 5. RECOVER        | Restore operations quickly.          |
+|                   | • Tested backups                    |
+|                   | • Alternative communication         |
+|                   | • Lessons learned review            |
++-------------------+--------------------------------------+
+| 6. GOVERN         | Leadership and oversight.            |
+|                   | • Assign a cyber lead               |
+|                   | • Align with business goals         |
+|                   | • Report progress to leadership     |
++-------------------+--------------------------------------+
+
+---
+
 []: # (Credit: The content of this article is inspired by the NIST Cybersecurity Framework 2.0 and various cybersecurity resources.)
 
 > Source: [NIST Cybersecurity Framework](https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf)
+
