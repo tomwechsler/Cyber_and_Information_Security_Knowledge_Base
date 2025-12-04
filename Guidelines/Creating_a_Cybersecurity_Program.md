@@ -565,6 +565,6 @@ By aligning these layers with global standards like **NIST CSF**, **ISO 27001**,
 
 ---
 
-[]: # (Credit: The content of this article is inspired by the CIS Controls, PTES, OWASP, NIST, and MITRE ATT&CK frameworks.)
+[]: # (Credit: The content of this article is inspired by the CIS Controls, ISO/IEC, PTES, OWASP, NIST, and MITRE ATT&CK frameworks.) The information contained in the "ISC2 CISSP Common Body of Knowledge" was also helpful in writing this article.
 
 > Source: [NIST Cybersecurity Framework (CSF)](https://www.nist.gov/cyberframework), [ISO/IEC 27001 & ISO 27002](https://www.iso.org/standard/27001), [COBIT](https://www.isaca.org/resources/cobit), [MITRE ATT&CK Framework](https://attack.mitre.org/), [CIS Controls](https://www.cisecurity.org/controls/)
