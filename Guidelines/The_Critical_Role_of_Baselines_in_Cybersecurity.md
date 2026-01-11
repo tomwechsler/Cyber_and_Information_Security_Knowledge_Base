@@ -9,7 +9,7 @@ To understand why baselines are so important in cybersecurity, it helps to look 
 
 Imagine a newly installed physical server in a data center. The operating system has just been deployed, required services are installed, security patches are up to date, and the system has been hardened according to best practices (for example, using CIS Benchmarks). At this point, the server is in a **known, trusted, and approved state**. This state becomes the **baseline**.
 
-What if the server has been running for a long time? What is “normal” now, or what behavior can be expected?
+What if the server has been running for a long time? **What is “normal” now, or what behavior can be expected?**  
 
 Is that normal?
 
@@ -40,7 +40,7 @@ This baseline answers a critical question: **“What does normal look like for t
 
 ---
 
-## Let's set up a baseline together with “Perfmon” (this is only an example configuration).  This is by no means a final or absolutely complete configuration.
+### Let's set up a baseline together with “Perfmon” (this is only an example configuration).  This is by no means a final or absolutely complete configuration.
 
 1. I am using Windows Server 2022 here (also works with Windows 11). Navigate to Start, then right-click and enter “perfmon.”
 
@@ -119,6 +119,14 @@ If you do not know the baseline state of your server, every alert becomes a gues
 If you do know the baseline, every deviation becomes a signal.
 
 That is why baselines are not optional—they are a foundational requirement for any effective cybersecurity program.
+
+---
+
+### Links:
+
+- [Microsoft Docs: Windows Server Management documentation](https://learn.microsoft.com/en-us/windows-server/administration/manage-windows-server)))
+- [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks/)
+- [NIST Special Publication 800-128: Guide for Security-Focused Configuration Management of Information Systems](https://csrc.nist.gov/publications/detail/sp/800-128/final)
 
 ---
 ## *HAPPY BASELINING!*
