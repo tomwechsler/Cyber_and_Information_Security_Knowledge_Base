@@ -9,7 +9,7 @@ To understand why baselines are so important in cybersecurity, it helps to look 
 
 Imagine a newly installed physical server in a data center. The operating system has just been deployed, required services are installed, security patches are up to date, and the system has been hardened according to best practices (for example, using CIS Benchmarks). At this point, the server is in a **known, trusted, and approved state**. This state becomes the **baseline**.
 
-What if the server has been running for a long time? **What is “normal” now, or what behavior can be expected?**  
+But, what if the server has been running for a long time? **What is “normal” now, or what behavior can be expected?**  
 
 Is that normal?
 
@@ -124,7 +124,7 @@ That is why baselines are not optional—they are a foundational requirement for
 
 ### Links:
 
-- [Microsoft Docs: Windows Server Management documentation](https://learn.microsoft.com/en-us/windows-server/administration/manage-windows-server)))
+- [Microsoft Docs: Windows Server Management documentation](https://learn.microsoft.com/en-us/windows-server/administration/manage-windows-server)
 - [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks/)
 - [NIST Special Publication 800-128: Guide for Security-Focused Configuration Management of Information Systems](https://csrc.nist.gov/publications/detail/sp/800-128/final)
 
