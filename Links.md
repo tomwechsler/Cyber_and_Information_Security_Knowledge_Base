@@ -1,9 +1,12 @@
 ## A collection of links
 
-**NIST Cybersecurity Framework (CSF)**  
+**NIST Cybersecurity Framework**  
+https://www.nist.gov/cyberframework
+
+**NIST Cybersecurity Framework (CSF 2.0 - PDF)**  
 https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf
 
-**NIST Zero Trust Architecture**
+**NIST Zero Trust Architecture**  
 https://csrc.nist.gov/publications/detail/sp/800-207/final
 
 **NIST Special Publication 800-53**  
