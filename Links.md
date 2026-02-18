@@ -12,6 +12,12 @@ https://csrc.nist.gov/publications/detail/sp/800-207/final
 **NIST Special Publication 800-53**  
 https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
 
+**NIST Special Publication 800-145**  
+https://csrc.nist.gov/pubs/sp/800/145/final
+
+**NIST Special Publication 800-88**  
+https://csrc.nist.gov/pubs/sp/800/88/r2/final
+
 **ISO/IEC 27001 Standard**  
 https://www.iso.org/isoiec-27001-information-security.html
 
