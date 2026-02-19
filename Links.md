@@ -19,7 +19,13 @@ https://csrc.nist.gov/pubs/sp/800/145/final
 https://csrc.nist.gov/pubs/sp/800/88/r2/final
 
 **ISO/IEC 27001 Standard**  
-https://www.iso.org/isoiec-27001-information-security.html
+https://www.iso.org/standard/27001
+
+**ISO/IEC 27002 Standard**  
+https://www.iso.org/standard/75652.html
+
+**ISO/IEC 27017 Standard**  
+https://www.iso.org/standard/43757.html
 
 **MITRE ATT&CK Framework**  
 https://attack.mitre.org/
