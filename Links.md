@@ -6,11 +6,17 @@ https://www.nist.gov/cyberframework
 **NIST Cybersecurity Framework (CSF 2.0 - PDF)**  
 https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf
 
-**NIST Special Publication 800-53**  
-https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
+**NIST Special Publication 800-18**  
+https://csrc.nist.gov/publications/detail/sp/800-18/rev-1/final
 
 **NIST Special Publication 800-34**  
 https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final
+
+**NIST Special Publication 800-37**  
+https://csrc.nist.gov/pubs/sp/800/37/r2/final
+
+**NIST Special Publication 800-53**  
+https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
 
 **NIST Special Publication 800-88**  
 https://csrc.nist.gov/pubs/sp/800/88/r2/final
