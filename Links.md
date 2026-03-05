@@ -18,6 +18,12 @@ https://csrc.nist.gov/pubs/sp/800/37/r2/final
 **NIST Special Publication 800-53**  
 https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
 
+**NIST Special Publication 800-61**  
+https://csrc.nist.gov/pubs/sp/800/61/r3/final
+
+**NIST Special Publication 800-86**  
+https://csrc.nist.gov/pubs/sp/800/86/final
+
 **NIST Special Publication 800-88**  
 https://csrc.nist.gov/pubs/sp/800/88/r2/final
 
