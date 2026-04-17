@@ -1,0 +1,55 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "MCP Recon API",
+    "version": "1.1.0"
+  },
+  "paths": {
+    "/run-subfinder": {
+      "post": {
+        "operationId": "runSubfinder",
+        "summary": "Run Subfinder",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "domain": { "type": "string" }
+                },
+                "required": ["domain"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Subdomains discovered" }
+        }
+      }
+    },
+    "/run-httpx-tech-detection": {
+      "post": {
+        "operationId": "runHttpxTechDetection",
+        "summary": "Run HTTPX Tech Detection",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "domains": { "type": "array", "items": {"type": "string"} }
+                },
+                "required": ["domains"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Tech detection results" }
+        }
+      }
+    }
+  }
+}
