@@ -24,7 +24,35 @@
           }
         },
         "responses": {
-          "200": { "description": "Subdomains discovered" }
+          "200": {
+            "description": "Subdomains discovered",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string", "example": "success" },
+                    "results": { "type": "array", "items": { "type": "string" } },
+                    "csv_download": { "type": "string", "example": "/download/subfinder_example.com.csv" }
+                  },
+                  "required": ["status", "results"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Domain not provided",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": { "type": "string", "example": "Domain not provided" }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -47,8 +75,289 @@
           }
         },
         "responses": {
-          "200": { "description": "Tech detection results" }
+          "200": {
+            "description": "Tech detection results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string", "example": "success" },
+                    "results": { "type": "array", "items": { "type": "string" } },
+                    "csv_download": { "type": "string", "example": "/download/httpx_output.csv" }
+                  },
+                  "required": ["status", "results"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Domains not provided",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": { "type": "string", "example": "Domains not provided" }
+                  }
+                }
+              }
+            }
+          }
         }
+      }
+    },
+    "/run-gau": {
+      "post": {
+        "operationId": "runGau",
+        "summary": "Run Gau",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "domain": { "type": "string" }
+                },
+                "required": ["domain"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Gau results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string", "example": "success" },
+                    "results": { "type": "array", "items": { "type": "string" } },
+                    "csv_download": { "type": "string", "example": "/download/gau_example.com.csv" }
+                  },
+                  "required": ["status", "results"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Domain not provided",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": { "type": "string", "example": "Domain not provided" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/run-waybackurls": {
+      "post": {
+        "operationId": "runWaybackurls",
+        "summary": "Run Waybackurls",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "domain": { "type": "string" }
+                },
+                "required": ["domain"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Waybackurls results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string", "example": "success" },
+                    "results": { "type": "array", "items": { "type": "string" } },
+                    "csv_download": { "type": "string", "example": "/download/wayback_example.com.csv" }
+                  },
+                  "required": ["status", "results"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Domain not provided",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": { "type": "string", "example": "Domain not provided" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/run-nuclei": {
+      "post": {
+        "operationId": "runNuclei",
+        "summary": "Run Nuclei",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "urls": { "type": "array", "items": {"type": "string"} }
+                },
+                "required": ["urls"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Nuclei results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string", "example": "success" },
+                    "results": { "type": "array", "items": { "type": "string" } },
+                    "csv_download": { "type": "string", "example": "/download/nuclei_output.csv" }
+                  },
+                  "required": ["status", "results"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "URLs not provided",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": { "type": "string", "example": "URLs not provided" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/download/{filename}": {
+      "get": {
+        "operationId": "downloadFile",
+        "summary": "Download file",
+        "parameters": [
+          {
+            "name": "filename",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "File downloaded successfully",
+            "content": {
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "File not found"
+          }
+        }
+      }
+    },
+    "/.well-known/openapi.json": {
+      "get": {
+        "operationId": "serveOpenapi",
+        "summary": "Serve OpenAPI document",
+        "responses": {
+          "200": {
+            "description": "OpenAPI document served",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "runSubfinderRequest": {
+        "type": "object",
+        "properties": {
+          "domain": { "type": "string" }
+        },
+        "required": ["domain"]
+      },
+      "runHttpxTechDetectionRequest": {
+        "type": "object",
+        "properties": {
+          "domains": { "type": "array", "items": {"type": "string"} }
+        },
+        "required": ["domains"]
+      },
+      "runGauRequest": {
+        "type": "object",
+        "properties": {
+          "domain": { "type": "string" }
+        },
+        "required": ["domain"]
+      },
+      "runWaybackurlsRequest": {
+        "type": "object",
+        "properties": {
+          "domain": { "type": "string" }
+        },
+        "required": ["domain"]
+      },
+      "runNucleiRequest": {
+        "type": "object",
+        "properties": {
+          "urls": { "type": "array", "items": {"type": "string"} }
+        },
+        "required": ["urls"]
+      },
+      "downloadFileParameters": {
+        "type": "object",
+        "properties": {
+          "filename": { "type": "string" }
+        },
+        "required": ["filename"]
+      },
+      "serveOpenapiResponse": {
+        "type": "object",
+        "properties": {}
       }
     }
   }
