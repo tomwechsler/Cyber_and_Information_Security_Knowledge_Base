@@ -12,6 +12,15 @@ https://www.nomic.ai/gpt4all
 **Python**  
 https://www.python.org/
 
+**AnythinglLM**  
+https://anythingllm.com/
+
+**Warp**  
+https://www.warp.dev/
+
+**Cisco AI Defense**  
+https://github.com/cisco-ai-defense
+
 **MITRE ATLAS**  
 https://atlas.mitre.org/
 
