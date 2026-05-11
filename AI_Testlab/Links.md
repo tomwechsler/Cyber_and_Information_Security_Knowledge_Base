@@ -1,5 +1,8 @@
 ## A collection of links
 
+**Can I run AI**  
+https://www.canirun.ai/
+
 **Ollama**  
 https://ollama.com/
 
@@ -20,6 +23,8 @@ https://www.warp.dev/
 
 **Cisco AI Defense**  
 https://github.com/cisco-ai-defense
+
+https://cisco-ai-defense.github.io/#projects
 
 **MITRE ATLAS**  
 https://atlas.mitre.org/
