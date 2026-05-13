@@ -37,3 +37,9 @@ https://www.oasis-open.org/
 
 **AI Incident Database**  
 https://incidentdatabase.ai/
+
+**OWASP LLM Top 10**  
+https://genai.owasp.org/llm-top-10/
+
+**OWASP Top 10 for Agentic Applications for 2026**  
+https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
