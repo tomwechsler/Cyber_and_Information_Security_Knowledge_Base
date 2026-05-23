@@ -936,8 +936,7 @@ It is about decisions, habits, responsibility, and trust.
 **How mature is your organization’s SETA program?**
 Is it compliance-driven — or does it truly change behavior?
 
-
-Sources: My own analysis and experience in my own AI lab, combined with documents such as the:
+Sources: My own PowerPoint slides, analysis and experience in my own AI lab, combined with documents such as the:
 
 [1]: https://csrc.nist.gov/pubs/sp/800/50/r1/final?utm_source "SP 800-50 Rev. 1, Building a Cybersecurity and Privacy Learning Program | CSRC"
 [2]: https://www.nist.gov/publications/building-information-technology-security-awareness-and-training-program?utm_source "Building an Information Technology Security Awareness and Training Program | NIST"
