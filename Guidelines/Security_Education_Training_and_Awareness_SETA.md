@@ -108,30 +108,30 @@ Each SETA component has a different purpose.
 
 ### Education
 
-**Attribute:** Why
-**Level:** Insight
-**Objective:** Understanding
-**Typical methods:** Discussion, seminar, reading, executive briefings
-**Test measures:** Essays, discussions, scenarios, strategic decisions
-**Impact timeframe:** Long-term
+**Attribute:** Why  
+**Level:** Insight  
+**Objective:** Understanding  
+**Typical methods:** Discussion, seminar, reading, executive briefings  
+**Test measures:** Essays, discussions, scenarios, strategic decisions  
+**Impact timeframe:** Long-term  
 
 ### Training
 
-**Attribute:** How
-**Level:** Knowledge
-**Objective:** Skill
-**Typical methods:** Lectures, case studies, labs, hands-on exercises
-**Test measures:** Problem solving, practical demonstrations
-**Impact timeframe:** Intermediate
+**Attribute:** How  
+**Level:** Knowledge  
+**Objective:** Skill  
+**Typical methods:** Lectures, case studies, labs, hands-on exercises  
+**Test measures:** Problem solving, practical demonstrations  
+**Impact timeframe:** Intermediate  
 
 ### Awareness
 
-**Attribute:** What
-**Level:** Information
-**Objective:** Behavior
-**Typical methods:** Interactive content, videos, posters, games, reminders
-**Test measures:** Quizzes, true/false questions, multiple choice
-**Impact timeframe:** Short-term
+**Attribute:** What  
+**Level:** Information  
+**Objective:** Behavior  
+**Typical methods:** Interactive content, videos, posters, games, reminders  
+**Test measures:** Quizzes, true/false questions, multiple choice  
+**Impact timeframe:** Short-term  
 
 This model helps organizations avoid a one-size-fits-all approach.
 
