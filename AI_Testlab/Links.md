@@ -21,6 +21,12 @@ https://anythingllm.com/
 **Warp**  
 https://www.warp.dev/
 
+**Visual Studio Code**
+https://code.visualstudio.com/
+
+**Cursor**  
+https://www.cursor.com/
+
 **Cisco AI Defense**  
 https://github.com/cisco-ai-defense
 
