@@ -27,6 +27,9 @@ https://code.visualstudio.com/
 **Cursor**  
 https://www.cursor.com/
 
+**Windsurf**  
+https://devin.ai/
+
 **Cisco AI Defense**  
 https://github.com/cisco-ai-defense
 
