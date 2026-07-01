@@ -1,0 +1,8 @@
+langchain
+langchain-community
+langchain-ollama
+langchain-text-splitters
+chromadb
+langchain-chroma
+unstructured
+markdown
