@@ -52,3 +52,6 @@ https://genai.owasp.org/llm-top-10/
 
 **OWASP Top 10 for Agentic Applications for 2026**  
 https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+
+**ISC2 AI Security Skills**  
+https://www.isc2.org/landing/ai-security-skills
