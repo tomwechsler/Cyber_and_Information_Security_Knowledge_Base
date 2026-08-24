@@ -1,0 +1,11 @@
+# Requirements for Osint_Analysis.ipynb
+crewai[tools]
+decouple
+langchain
+langchain-core
+langchain-exa
+exa_py==1.0.7
+duckduckgo-search
+ipykernel
+jupyterlab
+python-dotenv
