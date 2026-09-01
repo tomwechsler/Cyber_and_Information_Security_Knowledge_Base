@@ -1,0 +1,53 @@
+name: ollama-openwebui
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - ai_backend
+    expose:
+      - "11434"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:v0.11.1
+    container_name: open-webui
+    restart: unless-stopped
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      OLLAMA_BASE_URL: http://ollama:11434
+      ENABLE_OLLAMA_API: "True"
+      WEBUI_SECRET_KEY: ${WEBUI_SECRET_KEY}
+
+    ports:
+      - "3000:8080"
+    volumes:
+      - open_webui_data:/app/backend/data
+    networks:
+      - ai_backend
+
+networks:
+  ai_backend:
+    driver: bridge
+
+volumes:
+  ollama_data:
+  open_webui_data:
