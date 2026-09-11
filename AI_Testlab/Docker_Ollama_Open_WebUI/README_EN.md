@@ -59,7 +59,51 @@ docker --version
 docker compose version
 ```
 
-If Docker is not yet installed, install Docker Engine including the Compose plugin according to the official Docker documentation for Ubuntu.
+If Docker is not yet installed, it can be set up as described in the following section.
+
+### Install Docker Engine
+
+Install the required packages and set up the official Docker repository:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+```
+
+Install Docker Engine, the CLI, containerd, and the Buildx and Compose plugins:
+
+```bash
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+Test the installation:
+
+```bash
+sudo docker run hello-world
+```
+
+Optional: add the current user to the `docker` group so Docker commands can be run without `sudo`. A logout and login is required afterwards:
+
+```bash
+sudo usermod -aG docker $USER
+```
+
+Then check the installation again:
+
+```bash
+docker --version
+docker compose version
+```
 
 ---
 

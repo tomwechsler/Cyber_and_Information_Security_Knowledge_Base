@@ -59,7 +59,51 @@ docker --version
 docker compose version
 ```
 
-Falls Docker noch nicht installiert ist, sollte Docker Engine inklusive Compose Plugin nach der offiziellen Docker-Dokumentation für Ubuntu installiert werden.
+Falls Docker noch nicht installiert ist, kann es wie im folgenden Abschnitt beschrieben eingerichtet werden.
+
+### Docker Engine installieren
+
+Benötigte Pakete installieren und das offizielle Docker-Repository einrichten:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+```
+
+Docker Engine, die CLI, containerd sowie die Plugins Buildx und Compose installieren:
+
+```bash
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+Installation testen:
+
+```bash
+sudo docker run hello-world
+```
+
+Optional: Den aktuellen Benutzer der Gruppe `docker` hinzufügen, damit Docker-Befehle ohne `sudo` ausgeführt werden können. Danach ist eine Ab- und erneute Anmeldung erforderlich:
+
+```bash
+sudo usermod -aG docker $USER
+```
+
+Anschliessend die Installation erneut prüfen:
+
+```bash
+docker --version
+docker compose version
+```
 
 ---
 
@@ -118,7 +162,7 @@ cd ~/ollama-openwebui
 
 Die Datei `docker-compose.yml` in dieses Verzeichnis kopieren.
 
-Die Verzeichnisstruktur sieht anschließend beispielsweise so aus:
+Die Verzeichnisstruktur sieht anschliessend beispielsweise so aus:
 
 ```text
 ~/ollama-openwebui/
@@ -277,7 +321,7 @@ IP-Adresse des Xubuntu-Systems anzeigen:
 hostname -I
 ```
 
-Anschließend im Browser beispielsweise:
+Anschliessend im Browser beispielsweise:
 
 ```text
 http://192.168.1.50:3000
@@ -373,7 +417,7 @@ Container mit den neuen Images neu erstellen:
 docker compose up -d
 ```
 
-Nicht mehr benötigte Images können anschließend optional entfernt werden:
+Nicht mehr benötigte Images können anschliessend optional entfernt werden:
 
 ```bash
 docker image prune
@@ -454,7 +498,7 @@ docker compose logs ollama
 docker compose exec ollama ollama ps
 ```
 
-Ollama empfiehlt bei GPU-Erkennungsproblemen außerdem, die NVIDIA-Treiber aktuell zu halten und zunächst sicherzustellen, dass der Docker-GPU-Test mit `nvidia-smi` funktioniert.
+Ollama empfiehlt bei GPU-Erkennungsproblemen ausserdem, die NVIDIA-Treiber aktuell zu halten und zunächst sicherzustellen, dass der Docker-GPU-Test mit `nvidia-smi` funktioniert.
 
 ### Open WebUI zeigt keine Ollama-Modelle
 
