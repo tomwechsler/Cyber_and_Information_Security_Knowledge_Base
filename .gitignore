@@ -178,7 +178,10 @@ AutoTest.Net/
 
 # Web workbench (sass)
 .sass-cache/
-
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 # Installshield output folder
 [Ee]xpress/
 

@@ -1,0 +1,17 @@
+[
+    {
+        "label": "gemma-4-e4b-q4_k_m",
+        "repo_id": "mradermacher/gemma-4-E4B-GGUF",
+        "filename": "gemma-4-E4B.Q4_K_M.gguf"
+    },
+    {
+        "label": "qwen-3.5-4b-q4_k_m",
+        "repo_id": "unsloth/Qwen3.5-4B-GGUF",
+        "filename": "Qwen3.5-4B-Q4_K_M.gguf"
+    },
+    {
+        "label": "llama-3.2-3b-q4_k_m",
+        "repo_id": "bartowski/Llama-3.2-3B-Instruct-GGUF",
+        "filename": "Llama-3.2-3B-Instruct-Q4_K_M.gguf"
+    }
+]
