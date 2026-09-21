@@ -1,6 +1,7 @@
 import argparse
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -58,6 +59,47 @@ def llama_bench_is_runnable(llama_bench: Path) -> bool:
     return result.returncode == 0
 
 
+def nvcc_version() -> tuple[int, int] | None:
+    """Return the installed CUDA compiler's major and minor version."""
+    try:
+        result = subprocess.run(
+            ["nvcc", "--version"],
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            timeout=10,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return None
+
+    if result.returncode != 0:
+        return None
+    match = re.search(r"release (\d+)\.(\d+)", result.stdout)
+    return (int(match.group(1)), int(match.group(2))) if match else None
+
+
+def needs_blackwell_cuda_fallback() -> bool:
+    """Return whether an old nvcc needs a compatible CUDA architecture."""
+    version = nvcc_version()
+    if version is None or version >= (12, 8) or not shutil.which("nvidia-smi"):
+        return False
+    try:
+        result = subprocess.run(
+            ["nvidia-smi", "--query-gpu=compute_cap", "--format=csv,noheader"],
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            timeout=10,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return False
+    if result.returncode != 0:
+        return False
+    return any(line.strip().startswith("12.") for line in result.stdout.splitlines())
+
+
 def build_local_llama_bench() -> str:
     """Clone and build llama.cpp locally, then return llama-bench's path."""
     if not shutil.which("git"):
@@ -85,7 +127,14 @@ def build_local_llama_bench() -> str:
     ]
     if shutil.which("nvcc"):
         cmake_configure.append("-DGGML_CUDA=ON")
-        print("Building local llama-bench with CUDA support ...")
+        if needs_blackwell_cuda_fallback():
+            cmake_configure.append("-DCMAKE_CUDA_ARCHITECTURES=89")
+            print(
+                "Building local llama-bench with CUDA support "
+                "(CUDA Toolkit older than 12.8; using compatible sm_89 code) ..."
+            )
+        else:
+            print("Building local llama-bench with CUDA support ...")
     else:
         print("Building local llama-bench without CUDA support (nvcc not found) ...")
     try:
