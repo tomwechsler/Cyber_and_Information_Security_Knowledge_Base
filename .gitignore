@@ -184,7 +184,9 @@ __pycache__/
 *.pyd
 # Installshield output folder
 [Ee]xpress/
-
+.DS_Store
+.AppleDouble
+.LSOverride
 # DocProject is a documentation generator add-in
 DocProject/buildhelp/
 DocProject/Help/*.HxT
