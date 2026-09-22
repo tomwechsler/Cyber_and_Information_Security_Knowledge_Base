@@ -1,0 +1,127 @@
+[
+    {
+        "ticket": "I was charged twice for my subscription this month.",
+        "category": "billing",
+        "urgency": "medium"
+    },
+    {
+        "ticket": "I can't log in because my MFA codes stopped working.",
+        "category": "account",
+        "urgency": "high"
+    },
+    {
+        "ticket": "The app crashes every time I upload a CSV file.",
+        "category": "technical",
+        "urgency": "high"
+    },
+    {
+        "ticket": "Can you add dark mode to the admin dashboard?",
+        "category": "feature_request",
+        "urgency": "low"
+    },
+    {
+        "ticket": "I think someone else accessed my account.",
+        "category": "security",
+        "urgency": "high"
+    },
+    {
+        "ticket": "My invoice shows a currency I didn't select at checkout.",
+        "category": "billing",
+        "urgency": "medium"
+    },
+    {
+        "ticket": "The export button downloads an empty PDF every time.",
+        "category": "technical",
+        "urgency": "medium"
+    },
+    {
+        "ticket": "Please update the email address on file for my profile.",
+        "category": "account",
+        "urgency": "low"
+    },
+    {
+        "ticket": "I received a password reset email that I never requested.",
+        "category": "security",
+        "urgency": "high"
+    },
+    {
+        "ticket": "It would be great to have keyboard shortcuts for navigation.",
+        "category": "feature_request",
+        "urgency": "low"
+    },
+    {
+        "ticket": "You billed my card after I cancelled last week.",
+        "category": "billing",
+        "urgency": "high"
+    },
+    {
+        "ticket": "The dashboard takes over a minute to load reports.",
+        "category": "technical",
+        "urgency": "medium"
+    },
+    {
+        "ticket": "How do I change my display name in settings?",
+        "category": "account",
+        "urgency": "low"
+    },
+    {
+        "ticket": "I'm seeing another customer's data on my orders page.",
+        "category": "security",
+        "urgency": "high"
+    },
+    {
+        "ticket": "Could you support exporting reports to Excel format?",
+        "category": "feature_request",
+        "urgency": "low"
+    },
+    {
+        "ticket": "I was promised a discount code that was never applied.",
+        "category": "billing",
+        "urgency": "low"
+    },
+    {
+        "ticket": "The mobile app freezes on the checkout screen.",
+        "category": "technical",
+        "urgency": "high"
+    },
+    {
+        "ticket": "I need to merge two accounts I accidentally created.",
+        "category": "account",
+        "urgency": "medium"
+    },
+    {
+        "ticket": "There are unfamiliar login attempts from another country.",
+        "category": "security",
+        "urgency": "high"
+    },
+    {
+        "ticket": "Please add a way to bulk-archive old projects.",
+        "category": "feature_request",
+        "urgency": "medium"
+    },
+    {
+        "ticket": "My refund from last month still hasn't arrived.",
+        "category": "billing",
+        "urgency": "medium"
+    },
+    {
+        "ticket": "API calls return a 500 error since this morning's update.",
+        "category": "technical",
+        "urgency": "high"
+    },
+    {
+        "ticket": "I can't update my notification preferences, the toggle won't save.",
+        "category": "account",
+        "urgency": "low"
+    },
+    {
+        "ticket": "An API key was leaked in a public repo, please revoke it.",
+        "category": "security",
+        "urgency": "high"
+    },
+    {
+        "ticket": "It would help to have a weekly summary email of activity.",
+        "category": "feature_request",
+        "urgency": "low"
+    }
+]
