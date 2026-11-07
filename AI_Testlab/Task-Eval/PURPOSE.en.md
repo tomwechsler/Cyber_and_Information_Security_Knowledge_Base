@@ -8,9 +8,12 @@ models on a concrete task: classifying support tickets.
 
 ## What the script does in detail
 
-1. **Ensure dependencies**: On startup, `ensure_dependencies()` checks
-   whether `requests` and `tqdm` are importable. If not, they are
-   automatically installed via `pip install -r requirements.txt`.
+1. **Ensure environment & dependencies**: On startup,
+   `ensure_dependencies()` makes sure the script runs inside its own
+   virtual environment (`.venv` next to the script). If needed, the venv is
+   created (bootstrapping pip via `get-pip.py` when `ensurepip` is missing),
+   the dependencies from `requirements.txt` are installed, and the script
+   re-launches itself inside the venv.
 2. **Check the Ollama server**: `ensure_ollama_running()` checks whether the
    Ollama API is reachable at `http://localhost:11434`. If not, the script
    exits with a clear error message.

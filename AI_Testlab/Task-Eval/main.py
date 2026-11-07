@@ -1,30 +1,117 @@
 import argparse
 import json
+import os
 import random
 import shutil
 import subprocess
 import sys
 import threading
+import urllib.request
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 REQUIREMENTS_FILE = SCRIPT_DIR / "requirements.txt"
+VENV_DIR = SCRIPT_DIR / ".venv"
+GET_PIP_URL = "https://bootstrap.pypa.io/get-pip.py"
+
+
+def _venv_python() -> Path:
+    if os.name == "nt":
+        return VENV_DIR / "Scripts" / "python.exe"
+    return VENV_DIR / "bin" / "python"
+
+
+def _ensure_pip(python: Path) -> None:
+    """Make sure pip is available in the venv, bootstrapping it if necessary."""
+    check = subprocess.run(
+        [str(python), "-m", "pip", "--version"],
+        capture_output=True,
+    )
+    if check.returncode == 0:
+        return
+    print(
+        "pip not found in the virtual environment, bootstrapping via get-pip.py ...",
+        flush=True,
+    )
+    get_pip = urllib.request.urlopen(GET_PIP_URL, timeout=60).read()
+    subprocess.run([str(python), "-"], input=get_pip, check=True)
+
+
+def _create_venv() -> None:
+    print(f"Creating virtual environment in {VENV_DIR} ...", flush=True)
+    try:
+        subprocess.run(
+            [sys.executable, "-m", "venv", str(VENV_DIR)],
+            check=True,
+            capture_output=True,
+        )
+    except subprocess.CalledProcessError:
+        # ensurepip may be unavailable (e.g. Debian/Ubuntu without the
+        # python3-venv package): create the venv without pip and bootstrap
+        # pip from get-pip.py instead.
+        shutil.rmtree(VENV_DIR, ignore_errors=True)
+        subprocess.run(
+            [sys.executable, "-m", "venv", "--without-pip", str(VENV_DIR)],
+            check=True,
+        )
+    _ensure_pip(_venv_python())
+
+
+def _install_requirements(python: Path) -> None:
+    print("Installing dependencies from requirements.txt ...", flush=True)
+    subprocess.run(
+        [str(python), "-m", "pip", "install", "--quiet", "-r", str(REQUIREMENTS_FILE)],
+        check=True,
+    )
 
 
 def ensure_dependencies() -> None:
-    """Install missing third-party packages from requirements.txt, if needed."""
-    try:
-        import requests  # noqa: F401
-        import tqdm  # noqa: F401
-        return
-    except ImportError:
-        pass
+    """Make sure this script runs inside its own venv with all requirements.
 
-    print("Installing missing dependencies from requirements.txt ...")
-    subprocess.run(
-        [sys.executable, "-m", "pip", "install", "-r", str(REQUIREMENTS_FILE)],
-        check=True,
-    )
+    If the current interpreter is not the project's `.venv`, create the venv
+    if needed, install the requirements, and re-run this script inside it.
+    This keeps the directory fully self-contained and portable: copying it to
+    another machine with any Python 3.10+ only requires running `main.py`.
+    """
+    in_project_venv = Path(sys.prefix).resolve() == VENV_DIR.resolve()
+
+    if in_project_venv:
+        try:
+            import requests  # noqa: F401
+            import tqdm  # noqa: F401
+            return
+        except ImportError:
+            _ensure_pip(Path(sys.executable))
+            _install_requirements(Path(sys.executable))
+        return
+
+    python = _venv_python()
+    if python.exists():
+        # A venv copied from another machine or Python version may be broken
+        # (venvs contain absolute paths); recreate it in that case.
+        viable = subprocess.run(
+            [str(python), "-c", "import sys"],
+            capture_output=True,
+        ).returncode == 0
+        if not viable:
+            print("Existing .venv is not usable on this system, recreating it ...", flush=True)
+            shutil.rmtree(VENV_DIR, ignore_errors=True)
+
+    if not python.exists():
+        _create_venv()
+        _install_requirements(python)
+    else:
+        deps_ok = subprocess.run(
+            [str(python), "-c", "import requests, tqdm"],
+            capture_output=True,
+        )
+        if deps_ok.returncode != 0:
+            _ensure_pip(python)
+            _install_requirements(python)
+
+    # Re-run this script with the venv interpreter and forward its exit code.
+    result = subprocess.run([str(python), *sys.argv])
+    sys.exit(result.returncode)
 
 
 ensure_dependencies()

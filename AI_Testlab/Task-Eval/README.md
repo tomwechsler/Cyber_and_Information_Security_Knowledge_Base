@@ -19,11 +19,15 @@ interpret the printed tables.
 - **Ollama** — runs the local models.
 - **Python 3.10+**
 
-`main.py` is self-contained: on every run it automatically installs any
-missing Python dependencies (from `requirements.txt`), checks that the
-Ollama server is reachable, and pulls any of the required models
-(`llama3.2:3b`, `qwen3.5:4b`) that are not yet available locally. The only
-manual prerequisite is installing and starting Ollama itself.
+`main.py` is fully self-contained and portable: on every run it creates its
+own virtual environment (`.venv` inside this directory) if needed —
+bootstrapping `pip` automatically on systems where `ensurepip` is missing —
+installs any missing Python dependencies (from `requirements.txt`),
+re-launches itself inside that environment, checks that the Ollama server is
+reachable, and pulls any of the required models (`llama3.2:3b`,
+`qwen3.5:4b`) that are not yet available locally. Copy this directory to any
+machine with Python 3.10+ and run `main.py` — the only manual prerequisite
+is installing and starting Ollama itself.
 
 - **NVIDIA GPU (optional)** — the GPU usage table (utilization, power draw,
   memory) is collected via `nvidia-smi` and therefore requires an NVIDIA card
@@ -43,17 +47,23 @@ Start the Ollama app/service so its API is reachable at
 `http://localhost:11434`. `main.py` will refuse to run with a clear error
 message if it cannot reach this URL.
 
-## 2. Set up the Python environment (optional)
+## 2. Set up the Python environment (not required)
 
-`main.py` installs its own missing Python dependencies (from
-`requirements.txt`) the first time it is run, so a manual `pip install` step
-is optional. If you still want to prepare the environment up front, from the
-repository root:
+`main.py` manages its own Python environment: the first time it is run, it
+creates `.venv` inside this directory, installs the dependencies from
+`requirements.txt` into it, and restarts itself using that environment. This
+also works when `ensurepip`/`python3-venv` is unavailable (common on
+Debian/Ubuntu) — pip is then bootstrapped from `get-pip.py` — and regardless
+of whether another virtual environment is currently active. No manual
+`venv`/`pip` step is needed; an internet connection is required on first run
+to download the packages.
+
+If you prefer to prepare the environment up front anyway:
 
 ```bash
-uv venv
-source .venv/bin/activate   # Windows: .\.venv\Scripts\Activate.ps1
-uv pip install -r Task-Eval/requirements.txt
+cd Task-Eval
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt   # Windows: .venv\Scripts\pip install -r requirements.txt
 ```
 
 ## 3. Run the evaluation

@@ -19,11 +19,15 @@ sind, in [RESULTS.md](RESULTS.md).
 - **Ollama** — führt die lokalen Modelle aus.
 - **Python 3.10+**
 
-`main.py` ist eigenständig lauffähig: Bei jedem Start installiert es
-automatisch fehlende Python-Abhängigkeiten (aus `requirements.txt`), prüft,
+`main.py` ist vollständig eigenständig und portabel: Bei jedem Start erstellt
+es bei Bedarf sein eigenes virtuelles Environment (`.venv` in diesem
+Verzeichnis) — auf Systemen ohne `ensurepip` wird `pip` automatisch
+nachgeladen —, installiert fehlende Python-Abhängigkeiten (aus
+`requirements.txt`), startet sich selbst in diesem Environment neu, prüft,
 ob der Ollama-Server erreichbar ist, und lädt alle benötigten Modelle
 (`llama3.2:3b`, `qwen3.5:4b`) automatisch nach, falls sie lokal noch nicht
-vorhanden sind. Die einzige manuelle Voraussetzung ist die Installation und
+vorhanden sind. Das Verzeichnis kann auf jedes System mit Python 3.10+
+kopiert werden — die einzige manuelle Voraussetzung ist die Installation und
 der Start von Ollama selbst.
 
 - **NVIDIA-GPU (optional)** — die GPU-Nutzungstabelle (Auslastung,
@@ -45,17 +49,24 @@ Die Ollama-App/den Dienst starten, damit dessen API unter
 `http://localhost:11434` erreichbar ist. `main.py` bricht mit einer klaren
 Fehlermeldung ab, falls diese URL nicht erreichbar ist.
 
-## 2. Python-Umgebung einrichten (optional)
+## 2. Python-Umgebung einrichten (nicht erforderlich)
 
-`main.py` installiert beim ersten Start fehlende Python-Abhängigkeiten (aus
-`requirements.txt`) automatisch selbst — ein manueller `pip install`-Schritt
-ist also optional. Wer die Umgebung dennoch vorab einrichten möchte, tut dies
-vom Repository-Root aus:
+`main.py` verwaltet seine Python-Umgebung selbst: Beim ersten Start erstellt
+es `.venv` in diesem Verzeichnis, installiert die Abhängigkeiten aus
+`requirements.txt` dort hinein und startet sich selbst mit dieser Umgebung
+neu. Das funktioniert auch, wenn `ensurepip`/`python3-venv` nicht verfügbar
+ist (häufig unter Debian/Ubuntu) — pip wird dann über `get-pip.py`
+nachgeladen — und unabhängig davon, ob gerade ein anderes virtuelles
+Environment aktiv ist. Ein manueller `venv`-/`pip`-Schritt ist nicht nötig;
+beim ersten Lauf wird eine Internetverbindung zum Herunterladen der Pakete
+benötigt.
+
+Wer die Umgebung dennoch vorab einrichten möchte:
 
 ```bash
-uv venv
-source .venv/bin/activate   # Windows: .\.venv\Scripts\Activate.ps1
-uv pip install -r Task-Eval/requirements.txt
+cd Task-Eval
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt   # Windows: .venv\Scripts\pip install -r requirements.txt
 ```
 
 ## 3. Evaluierung ausführen

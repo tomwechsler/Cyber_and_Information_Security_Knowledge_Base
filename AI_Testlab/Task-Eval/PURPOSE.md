@@ -9,9 +9,12 @@ Support-Tickets.
 
 ## Was das Skript im Detail macht
 
-1. **Abhängigkeiten sicherstellen**: Beim Start prüft `ensure_dependencies()`,
-   ob `requests` und `tqdm` installiert sind. Fehlen sie, werden sie
-   automatisch über `pip install -r requirements.txt` nachinstalliert.
+1. **Umgebung & Abhängigkeiten sicherstellen**: Beim Start sorgt
+   `ensure_dependencies()` dafür, dass das Skript in seinem eigenen
+   virtuellen Environment (`.venv` im Skriptverzeichnis) läuft. Falls nötig,
+   wird das venv erstellt (inkl. pip-Bootstrap über `get-pip.py`, wenn
+   `ensurepip` fehlt), die Abhängigkeiten aus `requirements.txt` werden
+   installiert und das Skript startet sich selbst im venv neu.
 2. **Ollama-Server prüfen**: `ensure_ollama_running()` prüft, ob die
    Ollama-API unter `http://localhost:11434` erreichbar ist. Falls nicht,
    bricht das Skript mit einer klaren Fehlermeldung ab.
